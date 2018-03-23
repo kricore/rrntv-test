@@ -24,9 +24,10 @@
     "expo": "^25.0.0",
     "mobx": "^4.1.0",
     "mobx-react": "^5.0.0",
-    "react": "16.2.0",
+    "react": "^16.2.0",
     "react-native": "0.52.0",
     "react-native-htmlview": "^0.12.1",
+    "react-native-maps": "^0.20.1",
     "react-router": "^4.2.0",
     "react-router-native": "^4.2.0",
     "react-router-native-stack": "0.0.11"

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { Image, View, Text, StyleSheet, Dimensions, ScrollView, ActivityIndicator } from 'react-native';
 import HTMLView from 'react-native-htmlview'
 import { runInAction, observable } from 'mobx';
 import { observer } from 'mobx-react';
@@ -98,7 +98,6 @@ export default class Item extends Component {
     }
 
     render() {
-        console.log(this.data)
         return (
             <View style={styles.article}>
                 {this.hasLoaded &&
@@ -121,6 +120,9 @@ export default class Item extends Component {
                          onLinkPress={(url) => console.log('clicked link: ', url)}
                      />
                 </ScrollView>
+                }
+                {!this.hasLoaded &&
+                <ActivityIndicator size="large" color="#0000ff" />
                 }
             </View>  
         );

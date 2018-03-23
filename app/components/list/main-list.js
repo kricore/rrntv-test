@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 import { action, runInAction, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import ListItem from './list-item';
@@ -19,13 +19,17 @@ export default class List extends Component {
      * @param {*} feed 
      */
     async fetchFeed(feed) {
-        const response = await fetch(feed);
-        const json = await response.json();
-        this.data = json;
-
-        runInAction( () => {
-            this.hasLoaded = true;
-        });
+        try{
+            const response = await fetch(feed);
+            const json = await response.json();
+            this.data = json;
+    
+            runInAction( () => {
+                this.hasLoaded = true;
+            });
+        } catch(e) {
+            throw e;
+        }
     }
 
     _renderItem = ({item}) => (
@@ -51,6 +55,9 @@ export default class List extends Component {
                             keyExtractor={this._keyExtractor}
                         />
                     </View>
+                }
+                {!this.hasLoaded &&
+                <ActivityIndicator size="large" color="#0000ff" />
                 }
             </View>
         )

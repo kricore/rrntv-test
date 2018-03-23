@@ -4,6 +4,7 @@ import { NativeRouter, Route, Link, Switch } from 'react-router-native'
 import Home from './app/components/home';
 import List from './app/components/list/main-list';
 import Item from './app/components/item/item';
+import MapComponent from './app/components/map/map';
 import Stack from 'react-router-native-stack';
 
 
@@ -21,12 +22,16 @@ export default class App extends React.Component {
               <Link to="/news" styles={styles.navItem}>
                 <Text>News</Text>
               </Link>
+              <Link to="/map" styles={styles.navItem}>
+                <Text>Map</Text>
+              </Link>
             </View>
             <View style={styles.content}>
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/news" component={List} />
                 <Route path="/news/:id" component={Item} />
+                <Route path="/map" component={MapComponent} />
               </Switch>
             </View>
           </View>
