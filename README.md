@@ -1,1 +1,2 @@
 # rrntv-test
+npm i
