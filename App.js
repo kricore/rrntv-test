@@ -16,13 +16,13 @@ export default class App extends React.Component {
         <Stack>
           <View style={styles.container}>
             <View style={styles.nav}>
-              <Link to="/" styles={styles.navItem}>
+              <Link to="/" style={styles.navItem}>
                 <Text>Home</Text>
               </Link>
-              <Link to="/news" styles={styles.navItem}>
+              <Link to="/news" style={styles.navItem}>
                 <Text>News</Text>
               </Link>
-              <Link to="/map" styles={styles.navItem}>
+              <Link to="/map" style={styles.navItem}>
                 <Text>Map</Text>
               </Link>
             </View>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   navItem: {
     flex: 1,
-    padding: 10,
-    alingItems: 'center'
+    //padding: 10,
+    alignItems: 'center'
   }
 });
